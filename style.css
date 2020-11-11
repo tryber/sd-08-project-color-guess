@@ -1,0 +1,34 @@
+body {
+  font-family: "Xanh Mono", monospace;
+  font-weight: normal;
+  font-size: 22px;
+  margin: 0;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 25px;
+  margin-right: 5px;
+}
+
+.wrap {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#reset-game {
+  background-color: #0fa36b;
+  border: 0;
+  outline: none;
+  font-size: 1.1em;
+  padding: 5px 15px;
+  box-shadow: 2px 2px black;
+}
+
+#reset-game:active {
+  background-color: lightcyan;
+}
