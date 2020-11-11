@@ -8,9 +8,7 @@ function numberGenerator () {
     g = Math.floor(Math.random() * 255);
     b = Math.floor(Math.random() * 255);
 }
-
 numberGenerator()
-
 let rgbColorRight = "rgb(" + r + ", " + g + ", " + b + ")"
 
 // Altera o RGB no titulo
@@ -27,7 +25,6 @@ function createBalls () {
     ballsCase.appendChild(ball);
     }
 }
-
 createBalls()
 
 // Colore as 6 bolas
@@ -40,7 +37,6 @@ function color () {
         ball[i].style.backgroundColor = rgbColor;
     }    
 }
-
 color()
 
 // Colore a bola certa
@@ -48,16 +44,21 @@ function colorRight () {
     let position = Math.floor(Math.random() * 5);
     ball[position].style.backgroundColor = rgbColorRight;  
 }
-
 colorRight()
 
 // Acertou ou errou a cor
 let answer = document.getElementById("answer");
 function check (event) {
     if (event.target.style.backgroundColor === rgbColorRight) {
-        answer.innerHTML = "Acertou!"
+        answer.innerHTML = "Acertou!";
     } else {
-        answer.innerHTML = "Errou! Tente novamente!"
+        answer.innerHTML = "Errou! Tente novamente!";
     }
 }
+
+// Botão de resetar
+let resetButton = document.getElementById("reset-game");
+resetButton.addEventListener("click", function () {
+    document.location.reload()
+});
 
