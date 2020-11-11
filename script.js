@@ -11,11 +11,27 @@ function gerarBolas() {
     let colorBall = document.createElement("div");
     colorBall.classList.add("ball");
     let corDaVez = gerarCorAleatoria();
-    colorBall.style.backgroundColor = corDaVez;
-    ballsDiv.appendChild(colorBall);
+
     if (i === escolha) {
+      var corCerta = corDaVez;
       mudarTexto(corDaVez);
     }
+
+    colorBall.addEventListener("click", (evt) => {
+      checaSeAcertou(evt.target.style.backgroundColor, corCerta);
+    });
+
+    colorBall.style.backgroundColor = corDaVez;
+    ballsDiv.appendChild(colorBall);
+  }
+}
+
+function checaSeAcertou(corClicada, corCerta) {
+  let resposta = document.querySelector("#answer");
+  if (corClicada == corCerta) {
+    resposta.innerHTML = "Acertou!";
+  } else {
+    resposta.innerHTML = "Errou! Tente novamente!";
   }
 }
 
