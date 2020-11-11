@@ -1,6 +1,7 @@
 let rgb_color_p = document.querySelector('#rgb-color');
 let randomPos;
 let reset_game_btn = document.querySelector('#reset-game');
+let score_spn = document.querySelector('#score');
 resetGame();
 
 reset_game_btn.addEventListener('click', resetGame);
@@ -18,15 +19,26 @@ function randomPallete() { // Gera uma paleta randomica de cores
     for (index of balls) {
         index.style.backgroundColor = `rgb${randomColor()}`;
         index.addEventListener('click', selectBall);
+        index.style.border = '1px solid #000';
     }
 
     balls[randomPos].style.backgroundColor = `rgb${rgb_color_p.innerText}`;
 }
 
 function selectBall(event) { // Quando clicado em uma opção de cor
+    let balls = document.querySelectorAll('.ball');
+    for (index of balls) {
+        index.removeEventListener('click', selectBall);
+    }
+
     let answer = document.querySelector('#answer');
-    if (event.target.style.backgroundColor == `rgb${rgb_color_p.innerText}`) { answer.innerText = "Acertou!"; }
+    if (event.target.style.backgroundColor == `rgb${rgb_color_p.innerText}`) {
+        answer.innerText = "Acertou!";
+        score_spn.innerText = parseInt(score_spn.innerText) + 3;
+    }
     else { answer.innerText = "Errou! Tente novamente!"; }
+
+    event.target.style.border = '2px solid red';
 }
 
 function resetGame() { // Reseta o jogo
