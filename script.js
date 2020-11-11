@@ -51,3 +51,8 @@ divContainer.addEventListener('click', function (event) {
   }
 });
 
+const resetBtn = document.getElementById('reset-game');
+
+resetBtn.addEventListener('click', function () {
+  document.location.reload(true);
+});
