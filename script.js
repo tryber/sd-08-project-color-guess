@@ -1,8 +1,9 @@
 let rgb_color_p = document.querySelector('#rgb-color');
-rgb_color_p.innerText = randomColor();
-let randomPos = parseInt(Math.random() * 6);
+let randomPos;
+let reset_game_btn = document.querySelector('#reset-game');
+resetGame();
 
-randomPallete();
+reset_game_btn.addEventListener('click', resetGame);
 
 function randomColor() { // Gera uma cor aleatória
     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
@@ -22,8 +23,16 @@ function randomPallete() { // Gera uma paleta randomica de cores
     balls[randomPos].style.backgroundColor = `rgb${rgb_color_p.innerText}`;
 }
 
-function selectBall(event) {
+function selectBall(event) { // Quando clicado em uma opção de cor
     let answer = document.querySelector('#answer');
     if (event.target.style.backgroundColor == `rgb${rgb_color_p.innerText}`) { answer.innerText = "Acertou!"; }
     else { answer.innerText = "Errou! Tente novamente!"; }
+}
+
+function resetGame() { // Reseta o jogo
+    rgb_color_p.innerText = randomColor();
+    randomPos = parseInt(Math.random() * 6);
+    let answer = document.querySelector('#answer');
+    answer.innerText = 'Escolha uma cor';
+    randomPallete();
 }
