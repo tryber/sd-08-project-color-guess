@@ -65,4 +65,5 @@ resetBtn.addEventListener('click', function () {
   }
   createDivs();
   getCorrectColor();
+  spanAnswer.innerHTML = "Escolha uma cor";
 });
