@@ -16,7 +16,14 @@ function randomPallete() { // Gera uma paleta randomica de cores
     let balls = document.querySelectorAll('.ball');
     for (index of balls) {
         index.style.backgroundColor = `rgb${randomColor()}`;
+        index.addEventListener('click', selectBall);
     }
 
-    balls[randomPos].style.backgroundColor = `rgb${randomColor}`;
+    balls[randomPos].style.backgroundColor = `rgb${rgb_color_p.innerText}`;
+}
+
+function selectBall(event) {
+    let answer = document.querySelector('#answer');
+    if (event.target.style.backgroundColor == `rgb${rgb_color_p.innerText}`) { answer.innerText = "Acertou!"; }
+    else { answer.innerText = "Errou! Tente novamente!"; }
 }
