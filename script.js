@@ -1,13 +1,17 @@
 window.onload = function () {
   gerarBolas();
+  var podeMarcar = true;
   document.querySelector("#reset-game").addEventListener("click", gerarBolas);
 };
 
 function gerarBolas() {
   let ballsDiv = document.querySelector(".ballsDiv");
   let resposta = document.querySelector("#answer");
+  let textoCor = document.querySelector("#rgb-color");
+  textoCor.innerHTML = "Que cor eh essa?";
   resposta.innerHTML = "Escolha uma cor";
   ballsDiv.innerHTML = "";
+  podeMarcar = true;
 
   let escolha = Math.floor(Math.random() * 6);
 
@@ -36,13 +40,14 @@ function checaSeAcertou(corClicada, corCerta) {
     resposta.innerHTML = "Acertou!";
     incScore();
   } else {
+    decScore();
     resposta.innerHTML = "Errou! Tente novamente!";
   }
 }
 
 function mudarTexto(stringCor) {
   let textoCor = document.querySelector("#rgb-color");
-  textoCor.innerHTML = stringCor.slice(3);
+  textoCor.innerHTML += stringCor.slice(3);
 }
 
 function gerarCorAleatoria() {
@@ -55,6 +60,16 @@ function gerarCorAleatoria() {
 function incScore() {
   let score = document.querySelector("#score");
   let scoreNumber = parseInt(score.innerHTML);
-  scoreNumber += 3;
+  if (podeMarcar) {
+    scoreNumber += 3;
+  }
+  podeMarcar = false;
+  score.innerHTML = scoreNumber;
+}
+
+function decScore() {
+  let score = document.querySelector("#score");
+  let scoreNumber = parseInt(score.innerHTML);
+  scoreNumber -= 1;
   score.innerHTML = scoreNumber;
 }
