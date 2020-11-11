@@ -2,7 +2,7 @@ const cores = document.getElementById('cores');
 const rgbColor = document.getElementById('rgb-color');
 const answerText = document.getElementById('answer');
 const btnReset = document.getElementById('reset-game');
-let placar = document.getElementById('score');
+const placar = document.getElementById('score');
 let score = 0;
 let answer = false;
 
