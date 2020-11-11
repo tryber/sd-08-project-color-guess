@@ -1,8 +1,21 @@
+.color-container {
+  display: block;
+  margin: auto;
+  padding: 0;
+  width: 372px
+}
+
+.answer {
+  height: 40px;
+  margin: auto;
+  width: 300px;
+}
+
 .ball {
   border: 1px solid black;
   border-radius: 100%;
   display: inline-block;
   height: 50px;
-  margin: 10px;
+  margin: 5px;
   width: 50px;
 }

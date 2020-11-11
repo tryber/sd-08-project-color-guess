@@ -13,16 +13,16 @@ function createColor(numberOfColors) {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    rgb = `RGB(${r}, ${g}, ${b})`;
+    rgb = `rgb(${r}, ${g}, ${b})`;
     colors.push(rgb);
   }
   return colors;
 }
 
 // Gera os círculos para receberem as cores
+const colorContainer = document.getElementById('color-container');
 function createColorBall(numberOfBalls) {
   for (let ball = 0; ball < numberOfBalls; ball += 1) {
-    const colorContainer = document.getElementById('color-container');
     let color = document.createElement('div');
     color.className = 'ball';
     colorContainer.appendChild(color);
@@ -43,3 +43,13 @@ function insertColors() {
   }
 }
 insertColors()
+
+// Apresentar o resultado
+const answer = document.getElementById('answer');
+colorContainer.addEventListener('click', (event) => {
+  if (event.target.style.backgroundColor === gessColor.innerHTML) {  
+    answer.innerHTML = 'Acertou!';
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+})
