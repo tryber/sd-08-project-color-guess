@@ -29,7 +29,7 @@ function getCorrectColor() {
   } else if (colorIndex >= 6) {
     colorIndex = 5;
   }
-  
+
   const correctColorName = divColors[colorIndex].style.backgroundColor;
   const spanColor = document.getElementById('rgb-color');
   spanColor.innerHTML = correctColorName.replace('rgb', '');
@@ -47,12 +47,12 @@ divContainer.addEventListener('click', function (event) {
   const eventStyle = event.target.style.backgroundColor;
   const correctRgb = divColors[correctColorIndex].style.backgroundColor;
 
-  if (eventStyle == correctRgb) {
-    spanAnswer.innerHTML = 'Acertou!'
+  if (eventStyle === correctRgb) {
+    spanAnswer.innerHTML = 'Acertou!';
     count += 3;
     placar.innerHTML = 'Placar: ' + count;
   } else {
-    spanAnswer.innerHTML = "Errou! Tente novamente!"
+    spanAnswer.innerHTML = 'Errou! Tente novamente!';
   }
 });
 
@@ -65,5 +65,5 @@ resetBtn.addEventListener('click', function () {
   }
   createDivs();
   getCorrectColor();
-  spanAnswer.innerHTML = "Escolha uma cor";
+  spanAnswer.innerHTML = 'Escolha uma cor';
 });
