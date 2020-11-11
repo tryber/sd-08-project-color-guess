@@ -20,6 +20,9 @@ function createDivs() {
 }
 createDivs();
 
+let correctColorIndex = 0;
+const divColors = document.querySelectorAll('.ball');
+
 function getCorrectColor() {
   let colorIndex = Math.round(Math.random() * 6);
   if (colorIndex < 0) {
@@ -28,10 +31,23 @@ function getCorrectColor() {
     colorIndex = 5;
   }
   
-  const divColors = document.querySelectorAll('.ball');
-  const correctColor = divColors[colorIndex].style.backgroundColor;
-
+  const correctColorName = divColors[colorIndex].style.backgroundColor;
   const spanColor = document.getElementById('rgb-color');
-  spanColor.innerHTML = correctColor.replace('rgb', '');
+  spanColor.innerHTML = correctColorName.replace('rgb', '');
+  correctColorIndex = colorIndex;
 }
 getCorrectColor();
+
+const spanAnswer = document.getElementById('answer');
+
+divContainer.addEventListener('click', function (event) {
+  const eventStyle = event.target.style.backgroundColor;
+  const correctRgb = divColors[correctColorIndex].style.backgroundColor;
+
+  if (eventStyle == correctRgb) {
+    spanAnswer.innerHTML = 'Acertou!'
+  } else {
+    spanAnswer.innerHTML = "Errou! Tente novamente!"
+  }
+});
+
