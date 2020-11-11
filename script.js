@@ -1,13 +1,3 @@
-function createDivs() {
-  const divContainer = document.getElementById('ball-container');
-  
-  for (let i = 0; i < 6; i += 1) {
-    const divBall = document.createElement('div');
-    divBall.className = 'ball';
-    divContainer.appendChild(divBall);
-  }
-}
-createDivs();
 
 function ramdomColor() {
   const r = Math.floor(Math.random() * 255);
@@ -17,8 +7,31 @@ function ramdomColor() {
   return ('(' + r + ',' + g + ',' + b + ')');
 }
 
-const correctColor = ramdomColor();
+const divContainer = document.getElementById('ball-container');
 
-const spanColor = document.getElementById('rgb-color');
-spanColor.innerHTML = correctColor;
+function createDivs() {
 
+  for (let i = 0; i < 6; i += 1) {
+    const divBall = document.createElement('div');
+    divBall.className = 'ball';
+    divBall.style.backgroundColor = 'rgb' + ramdomColor();
+    divContainer.appendChild(divBall);
+  }
+}
+createDivs();
+
+function getCorrectColor() {
+  let colorIndex = Math.round(Math.random() * 6);
+  if (colorIndex < 0) {
+    colorIndex = 0;
+  } else if (colorIndex >= 6) {
+    colorIndex = 5;
+  }
+  
+  const divColors = document.querySelectorAll('.ball');
+  const correctColor = divColors[colorIndex].style.backgroundColor;
+
+  const spanColor = document.getElementById('rgb-color');
+  spanColor.innerHTML = correctColor.replace('rgb', '');
+}
+getCorrectColor();
