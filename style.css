@@ -28,8 +28,8 @@ h2 {
 .ball {
   border: 1px solid black;
   border-radius: 100%;
-  margin: 10px;
   height: 32px;
+  margin: 10px;
   width: 32px;
 }
 
