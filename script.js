@@ -6,7 +6,7 @@ function randomColor() {
   return `rgb(${randomNumber(256)}, ${randomNumber(256)}, ${randomNumber(256)})`;
 }
 
-const ballsContainer = document.getElementById('balls-container');
+const ballsContainer = document.querySelector('.balls-container');
 function createBalls() {
   for (let index = 0; index < 6; index += 1) {
     const newBall = document.createElement('div');

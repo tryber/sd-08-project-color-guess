@@ -1,19 +1,15 @@
-* {
-  margin: 10px;
-  font-family: Arial;
-}
-
 body {
-  height: 80vh;
   display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 80vh;
 }
 
 main {
-  width: 50%;
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
+  width: 50%;
 }
 
 h1 {
@@ -24,14 +20,15 @@ h2 {
   margin: 10px auto;
 }
 
-#balls-container {
-  margin: 10px auto;
+.balls-container {
   display: flex;
+  margin: 10px auto;
 }
 
 .ball {
   border: 1px solid black;
   border-radius: 100%;
+  margin: 10px;
   height: 32px;
   width: 32px;
 }
@@ -41,6 +38,7 @@ p {
 }
 
 button {
-  width: 30%;
   margin: 10px auto;
+  width: 30%;
+
 }
