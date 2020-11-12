@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 80vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+}
+
+h1 {
+  margin: auto;
+}
+
+h2 {
+  margin: 10px auto;
+}
+
+.balls-container {
+  display: flex;
+  margin: 10px auto;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 100%;
+  height: 32px;
+  margin: 10px;
+  width: 32px;
+}
+
+p {
+  margin: 10px auto;
+}
+
+button {
+  margin: 10px auto;
+  width: 30%;
+
+}
