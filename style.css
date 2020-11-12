@@ -1,0 +1,58 @@
+.ball {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin: 5px 5px;
+    border-radius: 50%;
+}
+
+#balls-container {
+    text-align: center;
+}
+
+.title {
+    margin-top: 70px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+}
+
+.selected {
+    border: 3px dashed blue;
+}
+
+.answer-container {
+    text-align: center;
+    border: 3px solid gray;
+    width: fit-content;
+    background-color: gray;
+    border-radius: 25px;
+    margin: 10px auto;
+}
+
+#answer {
+    padding: 0px 20px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.buttons {
+    width: fit-content;
+    margin: 30px auto;
+}
+
+#score {
+    text-align: center;
+    font-size: 25px;
+}
+
+.placar {
+    text-align: center;
+    font-size: 25px;
+}
