@@ -2,7 +2,9 @@ const ballsContainer = document.querySelector('.balls-container');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
 const resetGameButton = document.getElementById('reset-game');
+const score = document.getElementById('score');
 let colorToBeGuessed = null;
+let scoreCounter = 0;
 
 function shuffle(arr) {
   const result = arr.slice(0);
@@ -68,12 +70,18 @@ function startGame() {
   }
 }
 
+function updateScore() {
+  score.textContent = `Placar: ${scoreCounter}`;
+}
+
 function checkAnswer(event) {
   if (event.target.style.backgroundColor === colorToBeGuessed) {
     answer.textContent = 'Acertou!';
+    scoreCounter += 3;
   } else {
     answer.textContent = 'Errou! Tente novamente!';
   }
+  updateScore();
 }
 
 startGame();
