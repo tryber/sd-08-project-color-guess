@@ -1,5 +1,8 @@
 const ballsContainer = document.querySelector('.balls-container');
+const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
+const resetGameButton = document.getElementById('reset-game');
+let colorToBeGuessed = null;
 
 function shuffle(arr) {
   const result = arr.slice(0);
@@ -30,22 +33,40 @@ function createBall(color) {
   ballsContainer.appendChild(ball);
 }
 
-const colorToBeGuessed = getRandomColor();
-let colors = [colorToBeGuessed];
-
-for (let index = 0; index < 5; index += 1) {
-  colors.push(getRandomColor());
+function clearBalls() {
+  const balls = document.querySelectorAll('.ball');
+  for (let index = 0; index < balls.length; index += 1) {
+    const ball = balls[index];
+    ball.remove();
+  }
 }
 
-colors = shuffle(colors);
+function startGame() {
+  colorToBeGuessed = getRandomColor();
 
-for (let index = 0; index < colors.length; index += 1) {
-  const color = colors[index];
-  createBall(color);
+  let colors = [colorToBeGuessed];
+
+  for (let index = 0; index < 5; index += 1) {
+    colors.push(getRandomColor());
+  }
+
+  colors = shuffle(colors);
+
+  clearBalls();
+
+  for (let index = 0; index < colors.length; index += 1) {
+    const color = colors[index];
+    createBall(color);
+  }
+
+  rgbColor.textContent = colorToBeGuessed.replace('rgb', '');
+
+  const balls = document.querySelectorAll('.ball');
+  for (let index = 0; index < balls.length; index += 1) {
+    const ball = balls[index];
+    ball.addEventListener('click', checkAnswer);
+  }
 }
-
-const rgbColor = document.getElementById('rgb-color');
-rgbColor.textContent = colorToBeGuessed.replace('rgb', '');
 
 function checkAnswer(event) {
   if (event.target.style.backgroundColor === colorToBeGuessed) {
@@ -55,8 +76,6 @@ function checkAnswer(event) {
   }
 }
 
-const balls = document.querySelectorAll('.ball');
-for (let index = 0; index < balls.length; index += 1) {
-  const ball = balls[index];
-  ball.addEventListener('click', checkAnswer);
-}
+startGame();
+
+resetGameButton.addEventListener('click', startGame);
