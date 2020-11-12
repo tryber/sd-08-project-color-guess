@@ -8,6 +8,7 @@ for (let index = 0; index < numberOpts; index += 1) {
 }
 
 const circles = document.getElementsByClassName('ball');
+
 function colorCircles() {
   for (let index = 0; index < circles.length; index += 1) {
     const r = Math.floor(Math.random() * 255);
@@ -17,3 +18,22 @@ function colorCircles() {
   }
 }
 colorCircles();
+
+const quest = document.getElementById('rgb-color');
+const rightColor = Math.floor(Math.random() * circles.length);
+quest.innerText = circles[rightColor].style.backgroundColor.slice(3);
+
+const answer = document.getElementById('answer');
+answer.innerText = 'Escolha uma cor';
+function tryColor() {
+  for (let index = 0; index < circles.length; index += 1) {
+    circles[index].addEventListener('click', function () {
+      if (index == rightColor) {
+        answer.innerText = 'Acertou!';
+      } else {
+        answer.innerText = 'Errou! Tente novamente!';
+      }
+    });
+  }
+}
+tryColor();
