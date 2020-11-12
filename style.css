@@ -41,3 +41,18 @@ h1 {
     font-weight: bold;
     font-size: 20px;
 }
+
+.buttons {
+    width: fit-content;
+    margin: 30px auto;
+}
+
+#score {
+    text-align: center;
+    font-size: 25px;
+}
+
+.placar {
+    text-align: center;
+    font-size: 25px;
+}
