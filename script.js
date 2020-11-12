@@ -30,12 +30,10 @@ const answer = document.getElementById('answer');
 answer.innerText = 'Escolha uma cor';
 
 function checkColor(event) {
-  if (event.target == circles[rightColor]) {
+  if (event.target === circles[rightColor]) {
     answer.innerText = 'Acertou!';
-    let actScore = parseInt(score.innerText.slice(8));
-    console.log(actScore);
+    let actScore = parseInt(score.innerText.slice(8), 10);
     actScore += 3;
-    console.log(actScore);
     score.innerText = `Placar: ${actScore}`;
   } else {
     answer.innerText = 'Errou! Tente novamente!';
