@@ -3,9 +3,7 @@ function randomNumber(range) {
 }
 
 function randomColor() {
-  return `rgb(${randomNumber(256)}, ${randomNumber(256)}, ${randomNumber(
-    256
-  )})`;
+  return `rgb(${randomNumber(256)}, ${randomNumber(256)}, ${randomNumber(256)})`;
 }
 
 const ballsContainer = document.getElementById('balls-container');
