@@ -9,8 +9,8 @@ let scoreCounter = 0;
 function shuffle(arr) {
   const result = arr.slice(0);
   for (let index = 0; index < 100; index += 1) {
-    const index = Math.floor(Math.random() * result.length);
-    const cur = result.splice(index, 1)[0];
+    const pos = Math.floor(Math.random() * result.length);
+    const cur = result.splice(pos, 1)[0];
     result.push(cur);
   }
   return result;
@@ -43,7 +43,23 @@ function clearBalls() {
   }
 }
 
+function updateScore() {
+  score.textContent = `Placar: ${scoreCounter}`;
+}
+
+function checkAnswer(event) {
+  if (event.target.style.backgroundColor === colorToBeGuessed) {
+    answer.textContent = 'Acertou!';
+    scoreCounter += 3;
+  } else {
+    answer.textContent = 'Errou! Tente novamente!';
+  }
+  updateScore();
+}
+
 function startGame() {
+  answer.textContent = 'Escolha uma cor';
+
   colorToBeGuessed = getRandomColor();
 
   let colors = [colorToBeGuessed];
@@ -68,20 +84,6 @@ function startGame() {
     const ball = balls[index];
     ball.addEventListener('click', checkAnswer);
   }
-}
-
-function updateScore() {
-  score.textContent = `Placar: ${scoreCounter}`;
-}
-
-function checkAnswer(event) {
-  if (event.target.style.backgroundColor === colorToBeGuessed) {
-    answer.textContent = 'Acertou!';
-    scoreCounter += 3;
-  } else {
-    answer.textContent = 'Errou! Tente novamente!';
-  }
-  updateScore();
 }
 
 startGame();
