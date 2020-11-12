@@ -20,7 +20,7 @@ function colorCircles() {
 colorCircles();
 
 const quest = document.getElementById('rgb-color');
-const rightColor = Math.floor(Math.random() * circles.length);
+let rightColor = Math.floor(Math.random() * circles.length);
 quest.innerText = circles[rightColor].style.backgroundColor.slice(3);
 
 const answer = document.getElementById('answer');
@@ -37,3 +37,13 @@ function tryColor() {
   }
 }
 tryColor();
+
+const resetBtn = document.getElementById('reset-game');
+function reset() {
+  colorCircles();
+  rightColor = Math.floor(Math.random() * circles.length);
+  quest.innerText = circles[rightColor].style.backgroundColor.slice(3);
+  tryColor();
+  answer.innerText = 'Escolha uma cor';
+}
+resetBtn.addEventListener('click', reset);
