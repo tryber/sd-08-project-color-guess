@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Gess The Color!</title>
-</head>
-<body>
-  <header>
-    <h1 id="title">Adivinhe a cor!</h1>
-  </header>
-  <main class="game">
-    <div id="rgb-color" class="rgb-color"></div>
-    <h2 id="answer" class="answer">Escolha uma cor</h2>
-    <div id="color-container" class="color-container"></div>
-    <button id="reset-game" class="reset-game">Reinicie / Gerar novas cores</button>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Gess The Color!</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Adivinhe a cor!</h1>
+    </header>
+    <main class="game">
+      <div id="rgb-color" class="rgb-color"></div>
+      <h2 id="answer" class="answer">Escolha uma cor</h2>
+      <div id="color-container" class="color-container"></div>
+      <p id="score-container" class="score-container">
+        Sua pontuação: <span id="score">0</span>
+      </p>
+      <button id="reset-game" class="reset-game">
+        Reinicie / Gerar novas cores
+      </button>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

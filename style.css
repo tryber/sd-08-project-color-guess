@@ -20,7 +20,7 @@ h1 , .answer {
   display: block;
   margin: auto;
   padding: 0;
-  width: 372px
+  width: 372px;
 }
 
 .ball {
@@ -38,4 +38,10 @@ h1 , .answer {
   margin: 20px auto;
   padding: 5px 0;
   width: 250px;
+}
+
+.score-container {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
 }
