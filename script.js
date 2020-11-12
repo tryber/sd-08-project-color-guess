@@ -46,7 +46,7 @@ function verificaAcerto () {
         if(corSelecionada.style.backgroundColor === "rgb" + corSecreta.innerText){
             resposta.innerText = "Acertou!";
             let placar = sessionStorage.getItem("placar");
-            placar = parseInt(placar) + 1;
+            placar = parseInt(placar) + 3;
             sessionStorage.setItem("placar",placar);
             score.innerText = sessionStorage.getItem("placar");
         } else {
