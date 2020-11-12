@@ -1,13 +1,13 @@
 // Gera um código RGB
 let rgb;
 const gessColor = document.getElementById("rgb-color");
-function generateRGB() {
-  createColor(1);
+function generateNewChallenge() {
+  createRGBColor(1);
   gessColor.innerHTML = rgb;
 }
-generateRGB();
+generateNewChallenge();
 // Cria as cores
-function createColor(numberOfColors) {
+function createRGBColor(numberOfColors) {
   let colors = [];
   for (let color = 0; color < numberOfColors; color += 1) {
     const r = Math.floor(Math.random() * 256);
@@ -21,19 +21,19 @@ function createColor(numberOfColors) {
 
 // Gera os círculos para receberem as cores
 const colorContainer = document.getElementById('color-container');
-function createColorBall(numberOfBalls) {
+function createEmptyBall(numberOfBalls) {
   for (let ball = 0; ball < numberOfBalls; ball += 1) {
     let color = document.createElement('div');
     color.className = 'ball';
     colorContainer.appendChild(color);
   }
 }
-createColorBall(6)
+createEmptyBall(6)
 
 // Insere as cores nos círculos
 function insertColors() {
   // Define um array com as cores e troca um dos valores do array pelo valor sorteado 
-  let ballColors = createColor(6);
+  let ballColors = createRGBColor(6);
   let rightColor = Math.floor(Math.random() * 6);
   ballColors[rightColor] = gessColor.innerHTML;
   // Insere as cores
@@ -52,4 +52,12 @@ colorContainer.addEventListener('click', (event) => {
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
+});
+
+// Reseta o jogo
+const reset = document.getElementById('reset-game');
+reset.addEventListener('click', () => {
+  generateNewChallenge();
+  insertColors();
+  answer.innerHTML = 'Escolha uma cor';
 })

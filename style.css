@@ -1,14 +1,26 @@
+.game {
+  border: 2px solid black;
+  border-radius: 2vw;
+  margin: auto;
+  padding: 2%;
+  width: 60%;
+}
+
+h1 , .answer {
+  text-align: center;
+}
+
+.rgb-color {
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .color-container {
   display: block;
   margin: auto;
   padding: 0;
   width: 372px
-}
-
-.answer {
-  height: 40px;
-  margin: auto;
-  width: 300px;
 }
 
 .ball {
@@ -18,4 +30,12 @@
   height: 50px;
   margin: 5px;
   width: 50px;
+}
+
+.reset-game {
+  display: block;
+  font-size: 16px;
+  margin: 20px auto;
+  padding: 5px 0;
+  width: 250px;
 }
