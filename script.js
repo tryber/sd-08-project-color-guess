@@ -12,3 +12,15 @@ function getRandomColor() {
 
 const rgbColor = document.getElementById('rgb-color');
 rgbColor.textContent = getRandomColor();
+
+function createBall() {
+  const colorOption = document.createElement('div');
+  colorOption.className = 'ball';
+  colorOption.style.backgroundColor = `rgb${getRandomColor()}`;
+  return colorOption;
+}
+
+const ballsContainer = document.querySelector('.balls-container');
+for (let index = 0; index < 6; index += 1) {
+  ballsContainer.appendChild(createBall());
+}
