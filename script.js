@@ -3,18 +3,7 @@ const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
 const resetGameButton = document.getElementById('reset-game');
 const score = document.getElementById('score');
-let colorToBeGuessed = null;
 let scoreCounter = 0;
-
-function shuffle(arr) {
-  const result = arr.slice(0);
-  for (let index = 0; index < 100; index += 1) {
-    const pos = Math.floor(Math.random() * result.length);
-    const cur = result.splice(pos, 1)[0];
-    result.push(cur);
-  }
-  return result;
-}
 
 function getRandomNumber(limit) {
   return Math.floor(Math.random() * (limit + 1));
@@ -28,27 +17,14 @@ function getRandomColor() {
   return `rgb(${rgb.join(', ')})`;
 }
 
-function createBall(color) {
-  const ball = document.createElement('div');
-  ball.className = 'ball';
-  ball.style.backgroundColor = color || getRandomColor();
-  ballsContainer.appendChild(ball);
-}
-
-function clearBalls() {
-  const balls = document.querySelectorAll('.ball');
-  for (let index = 0; index < balls.length; index += 1) {
-    const ball = balls[index];
-    ball.remove();
-  }
-}
-
 function updateScore() {
   score.textContent = `Placar: ${scoreCounter}`;
 }
 
 function checkAnswer(event) {
-  if (event.target.style.backgroundColor === colorToBeGuessed) {
+  const elemColor = event.target.style.backgroundColor;
+  const colorToBeGuessed = `rgb${rgbColor.textContent}`;
+  if (elemColor === colorToBeGuessed) {
     answer.textContent = 'Acertou!';
     scoreCounter += 3;
   } else {
@@ -57,32 +33,32 @@ function checkAnswer(event) {
   updateScore();
 }
 
-function startGame() {
-  answer.textContent = 'Escolha uma cor';
+function createBall(color) {
+  const ball = document.createElement('div');
+  ball.className = 'ball';
+  ball.style.backgroundColor = color || getRandomColor();
+  ball.addEventListener('click', checkAnswer);
+  ballsContainer.appendChild(ball);
+}
 
-  colorToBeGuessed = getRandomColor();
-
-  let colors = [colorToBeGuessed];
-
-  for (let index = 0; index < 5; index += 1) {
-    colors.push(getRandomColor());
-  }
-
-  colors = shuffle(colors);
-
-  clearBalls();
-
-  for (let index = 0; index < colors.length; index += 1) {
-    const color = colors[index];
-    createBall(color);
-  }
-
-  rgbColor.textContent = colorToBeGuessed.replace('rgb', '');
-
+function eraseAllBalls() {
   const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < balls.length; index += 1) {
     const ball = balls[index];
-    ball.addEventListener('click', checkAnswer);
+    ball.remove();
+  }
+}
+
+function startGame() {
+  answer.textContent = 'Escolha uma cor';
+
+  eraseAllBalls();
+
+  const choosedColorIndex = getRandomNumber(5);
+  for (let index = 0; index < 6; index += 1) {
+    const color = getRandomColor();
+    if (index === choosedColorIndex) rgbColor.textContent = color.slice(3);
+    createBall(color);
   }
 }
 
