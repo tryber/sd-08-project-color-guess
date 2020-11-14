@@ -1,43 +1,43 @@
 const balls = document.getElementsByClassName('ball');
 const textColor = document.getElementById('rgb-color');
 const textAnswer = document.getElementById('answer');
-const buttonReset = document.getElementById('reset-game')
+const resetButton = document.getElementById('reset-game');
 const colors = [];
 
-function randomNumber() {
-    const number = Math.floor(Math.random() *256);
-    return number;
-};
+function randomNumber(mul) {
+    const numero = Math.floor(Math.random() * mul);
+    return numero;
+}
 
 function randomColor() {
-    const rgb = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
-    return rgb;
+  const rgb = `rgb(${randomNumber(256)}, ${randomNumber(256)}, ${randomNumber(256)})`;
+  return rgb;
 }
 
 function clickBall(event) {
-    const selectedColor = event.target.style.backgroundColor;
-    if (selectedColor == textColor.textContent) {
-        textAnswer.textContent = 'Acertou!';
-    } else {
-        textAnswer.textContent = 'Errou! Tente novamente!';
-    }
+  const corSelecionada = event.target.style.backgroundColor;
+  if (corSelecionada === textColor.textContent) {
+    textAnswer.textContent = 'Acertou!';
+  } else {
+    textAnswer.textContent = 'Errou! Tente novamente!';
+  }
 }
 
-for (let ball = 0; balls.length; ball += 1) {
-    const color = randomColor();
-    balls[ball].style.backgroundColor = color;
-    colors[ball] = color;
-    balls[ball].addEventListener('click', clickBall);
-};
+for (let ball = 0; ball < balls.length; ball += 1) {
+  const color = randomColor();
+  balls[ball].style.backgroundColor = color;
+  colors[ball] = color;
+  balls[ball].addEventListener('click', clickBall);
+}
 
 function namedRandomColor() {
-    textColor.textContent = colors[randomColor(6)];
+  textColor.textContent = colors[randomNumber(6)];
 }
 
 namedRandomColor();
 
 function resetGame() {
-    window.location.reload();
+  window.location.reload();
 }
 
-buttonReset.addEventListener('click', resetGame);
+resetButton.addEventListener('click', resetGame);
