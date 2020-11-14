@@ -35,9 +35,13 @@ function checkAttempt() {
         event.target.style.backgroundColor === `rgb${chosenColor.innerText}`
       ) {
         answer.innerText = 'Acertou!';
+        answer.classList.remove('error');
+        answer.classList.add('check');
         setScore();
       } else {
         answer.innerText = 'Errou! Tente novamente!';
+        answer.classList.remove('check');
+        answer.classList.add('error');
       }
     });
   }
@@ -45,6 +49,8 @@ function checkAttempt() {
 function resetGame() {
   const sectionColors = document.querySelector('#color-control');
   const answer = document.getElementById('answer');
+  answer.classList.remove('error');
+  answer.classList.remove('check');
   while (sectionColors.firstChild) {
     sectionColors.removeChild(sectionColors.firstChild);
   }
