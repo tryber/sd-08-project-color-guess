@@ -13,13 +13,13 @@ main {
 }
 
 header {
-  color: #cfc9ce;
   border: 1px solid #cfc9ce;
   border-radius: 5px;
+  color: #cfc9ce;
 }
 
 section {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 5px;
   margin: 10px 0;
   padding: 30px;
