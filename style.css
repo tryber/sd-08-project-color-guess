@@ -1,0 +1,60 @@
+.ball {
+  border-radius: 100%;
+  display: inline-block;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+}
+
+main {
+  border: 1px solid gray;
+  margin: 10px auto;
+  text-align: center;
+  width: 60%;
+}
+
+.header {
+  background-color: rgb(191, 157, 247);
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+#rgb-color {
+  color: blue;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+h3 {
+  color: green;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.score {
+  display: inline-block;
+}
+
+#reset-game {
+  background-color: rgb(163, 9, 209);
+  border: none;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 20px;
+  padding: 10px;
+  width: 50%;
+}
+
+.ball:hover , #reset-game:hover {
+  opacity: 50%;
+}
+
+.error {
+  color: red;
+}
+
+.check {
+  color: green;
+}
