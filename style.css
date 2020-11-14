@@ -1,16 +1,16 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
 .ball {
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    border: 1px black solid;
-    display: inline-block;
-    margin-left: 5px;
+  border: 1px black solid;
+  border-radius: 100%;
+  display: inline-block;
+  height: 80px;
+  margin-left: 5px;
+  width: 80px;
 }
 
-#rgb-color, #ball-container, #answer, #reset-game, #score {
-    margin-bottom: 20px;
+#rgb-color , #ball-container , #answer , #reset-game , #score {
+  margin-bottom: 20px;
 }
