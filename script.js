@@ -10,7 +10,7 @@ function generateColorRGB(numberOfColors) {
 }
 function createBallElements(numberOfBalls) {
   const sectionBalls = document.getElementById('color-control');
-  const chosenColor = document.getElementById('chosen-color');
+  const chosenColor = document.getElementById('rgb-color');
   const assortedColors = generateColorRGB(numberOfBalls);
   chosenColor.innerText = assortedColors[Math.floor(Math.random() * 6)];
   for (let indexBall = 0; indexBall < numberOfBalls; indexBall += 1) {
@@ -22,7 +22,7 @@ function createBallElements(numberOfBalls) {
 }
 function checkAttempt() {
   const balls = document.querySelectorAll('.ball');
-  const chosenColor = document.getElementById('chosen-color');
+  const chosenColor = document.getElementById('rgb-color');
   const answer = document.getElementById('answer');
   for (let indexBall = 0; indexBall < balls.length; indexBall += 1) {
     balls[indexBall].addEventListener('click', function (event) {
