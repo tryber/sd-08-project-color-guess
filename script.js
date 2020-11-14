@@ -36,6 +36,23 @@ function checkAttempt() {
     });
   }
 }
+function resetGame() {
+  const sectionColors = document.querySelector('#color-control');
+  const answer = document.getElementById('answer');
+  while (sectionColors.firstChild) {
+    sectionColors.removeChild(sectionColors.firstChild);
+  }
+  createBallElements(6);
+  checkAttempt();
+  answer.innerText = 'Escolha uma cor';
+}
+function newGame() {
+  const btnNewGame = document.getElementById('reset-game');
+  btnNewGame.addEventListener('click', function () {
+    resetGame();
+  });
+}
+newGame();
 window.onload = function () {
   createBallElements(6);
   checkAttempt();
