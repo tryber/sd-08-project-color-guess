@@ -20,6 +20,11 @@ function createBallElements(numberOfBalls) {
     sectionBalls.appendChild(divBall);
   }
 }
+function setScore() {
+  const scoreDisplay = document.getElementById('score');
+  const totalScore = parseInt(scoreDisplay.innerText, 10);
+  scoreDisplay.innerText = totalScore + 3;
+}
 function checkAttempt() {
   const balls = document.querySelectorAll('.ball');
   const chosenColor = document.getElementById('rgb-color');
@@ -30,6 +35,7 @@ function checkAttempt() {
         event.target.style.backgroundColor === `rgb${chosenColor.innerText}`
       ) {
         answer.innerText = 'Acertou!';
+        setScore();
       } else {
         answer.innerText = 'Errou! Tente novamente!';
       }
