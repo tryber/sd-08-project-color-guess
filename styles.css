@@ -1,10 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 .ball {
   border-radius: 50%;
   display: inline-block;
   height: 100px;
   width: 100px;
+}
+.reset-game {
+    border-radius: 5%;
 }
