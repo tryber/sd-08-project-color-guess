@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+
+.ball {
+  border: 1px black solid;
+  border-radius: 100%;
+  display: inline-block;
+  height: 80px;
+  margin-left: 5px;
+  width: 80px;
+}
+
+#rgb-color , #ball-container , #answer , #reset-game , #score {
+  margin-bottom: 20px;
+}
