@@ -11,6 +11,6 @@ body {
     margin-left: 5px;
 }
 
-#rgb-color, #ball-container, #answer, #reset-game {
+#rgb-color, #ball-container, #answer, #reset-game, #score {
     margin-bottom: 20px;
 }

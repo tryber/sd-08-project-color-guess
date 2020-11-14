@@ -1,5 +1,6 @@
 let corComparar = "";
 const corCompararLocal = document.querySelector('#rgb-color');
+const placarLocal = document.getElementById('score');
 
 function sorteio() {
     let numCor = Math.round(Math.random()*256);
@@ -39,21 +40,29 @@ let corUsuario = "";
 
 function corEscolhida() {
     corUsuario = event.target.style.backgroundColor;
-    textos()
+    textoEPlacar()
+    return corUsuario;
+    
 }
 ballPai.addEventListener('click', corEscolhida);
 
 const divText = document.querySelector('#answer');
 divText.innerText ='Escolha uma cor';
 
-function textos(){
+let num = 0;
+let cont = "placar: " + num;
+placarLocal.innerHTML = cont;
+
+function textoEPlacar(){    
     if (corUsuario == ("rgb"+corComparar)){
-    divText.innerText = 'Acertou!';
+        divText.innerText = 'Acertou!';
+        num += 3; 
     } else {
         divText.innerText = 'Errou! Tente novamente!';
     }
+    cont = "placar: " + num;
+    placarLocal.innerHTML = cont;
 }
-
 
 function reiniciar() {
     corCompare();
@@ -64,3 +73,8 @@ function reiniciar() {
     }
     opcoes();
 }
+
+
+
+
+
