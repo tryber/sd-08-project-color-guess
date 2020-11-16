@@ -1,19 +1,25 @@
 
 function ramdomColor() {
+  let output = '';
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
 
-  return ('(' + r + ',' + g + ',' + b + ')');
+  output = `(${r}, ${g}, ${b})`;
+
+  return output;
 }
 
 const divContainer = document.getElementById('ball-container');
 
 function createDivs() {
   for (let i = 0; i < 6; i += 1) {
+    const randomNum = ramdomColor();
+    let randomColor = 'rgb';
+    randomColor += randomNum;
     const divBall = document.createElement('div');
     divBall.className = 'ball';
-    divBall.style.backgroundColor = 'rgb' + ramdomColor();
+    divBall.style.backgroundColor = randomColor;
     divContainer.appendChild(divBall);
   }
 }
@@ -40,7 +46,8 @@ getCorrectColor();
 const spanAnswer = document.getElementById('answer');
 const placar = document.getElementById('score');
 let count = 0;
-placar.innerHTML = 'Placar: ' + count;
+let placarCount = `Placar: ${count}`;
+placar.innerHTML = placarCount;
 
 divContainer.addEventListener('click', function (event) {
   const divColors = document.querySelectorAll('.ball');
@@ -50,7 +57,8 @@ divContainer.addEventListener('click', function (event) {
   if (eventStyle === correctRgb) {
     spanAnswer.innerHTML = 'Acertou!';
     count += 3;
-    placar.innerHTML = 'Placar: ' + count;
+    placarCount = `Placar: ${count}`;
+    placar.innerHTML = placarCount;
   } else {
     spanAnswer.innerHTML = 'Errou! Tente novamente!';
   }
