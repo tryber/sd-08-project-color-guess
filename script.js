@@ -25,15 +25,19 @@ function handleScoreBoard(isCorrect) {
     scoreElement.innerText = parseInt(score) + 3;
   } else if (score != 0) {
     scoreElement.innerText = parseInt(score) - 1;
+  } else {
+    generateGuessRound();
   }
 }
 
 function checkCorrectColor(event) {
   const correct = document.getElementById('rgb-color').innerText;
   const answer = document.getElementById('answer');
+
   if ('rgb' + correct === event.target.style.backgroundColor) {
     answer.innerText = 'Acertou!';
     handleScoreBoard(true);
+    generateGuessRound();
   } else {
     answer.innerText = 'Errou! Tente novamente!';
     handleScoreBoard(false);
@@ -64,5 +68,4 @@ window.onload = () => {
   const resetBtn = document.getElementById('reset-game');
   resetBtn.addEventListener('click', generateGuessRound);
   generateGuessRound();
-
 }
