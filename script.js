@@ -25,8 +25,6 @@ function handleScoreBoard(isCorrect) {
     scoreElement.innerText = parseInt(score, 10) + 3;
   } else if (score !== 0) {
     scoreElement.innerText = parseInt(score, 10) - 1;
-  } else {
-    generateGuessRound();
   }
 }
 
@@ -37,7 +35,6 @@ function checkCorrectColor(event) {
   if (`rgb${correct}` === event.target.style.backgroundColor) {
     answer.innerText = 'Acertou!';
     handleScoreBoard(true);
-    generateGuessRound();
   } else {
     answer.innerText = 'Errou! Tente novamente!';
     handleScoreBoard(false);
