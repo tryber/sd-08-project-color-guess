@@ -1,22 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .header-title {
-    display: flex;
-    justify-content: center;
-    padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
 }
 
 .game-title {
-    background-color: #5995da;
-    padding: 20px 0;
-    color: #fff;
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 15px;
+  background-color: #5995da;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 0;
+  width: 60%;
 }
