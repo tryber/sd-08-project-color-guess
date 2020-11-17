@@ -44,7 +44,9 @@ randomCircleColor();
 
 container.addEventListener("click", (event) => {
   if (event.target.classList.contains("ball")) {
-    if (event.target.style.backgroundColor === color) {
+    if (
+      event.target.style.backgroundColor.replace("rgb", "") === color.innerText
+    ) {
       answer.innerHTML = "Acertou!";
     }
 
