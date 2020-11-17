@@ -24,3 +24,11 @@ yarn-error.log*
 
 # VSCode repo settings
 .vscode
+
+cypress/
+.prettierrc.json
+cypress.json
+package-lock.json
+package.json
+reporter.json
+
