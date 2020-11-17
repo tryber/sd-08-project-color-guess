@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: white;
+  background-color: white;
 }
 
 .header-title {
@@ -26,17 +26,16 @@ body {
 }
 
 .game-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 3px;
+  display: flex;
+  justify-content: center;
+  padding-top: 3px;
 }
 
 .rgb-text {
-    background-color: rgb(236, 235, 235);
-    border-radius: 30px;
-    display: flex;
-    height: 350px;
-    width: 50%;
-    display: flex;
-    justify-content: center;
+  background-color: rgb(236, 235, 235);
+  border-radius: 30px;
+  display: flex;
+  height: 350px;
+  justify-content: center;
+  width: 50%;
 }
