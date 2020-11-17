@@ -4,19 +4,39 @@
   padding: 0;
 }
 
+body {
+    background-color: white;
+}
+
 .header-title {
   display: flex;
   justify-content: center;
-  padding-top: 15px;
+  padding-top: 100px;
 }
 
 .game-title {
   background-color: #5995da;
-  border-radius: 15px;
+  border-radius: 30px;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 20px 0;
-  width: 60%;
+  padding: 25px 0;
+  width: 50%;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+}
+
+.rgb-text {
+    background-color: rgb(236, 235, 235);
+    border-radius: 30px;
+    display: flex;
+    height: 350px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
