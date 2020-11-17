@@ -28,14 +28,34 @@ body {
 .game-container {
   display: flex;
   justify-content: center;
-  padding-top: 3px;
+  padding-top: 4px;
 }
 
-.rgb-text {
+.rgb-container {
   background-color: rgb(236, 235, 235);
   border-radius: 30px;
   display: flex;
-  height: 350px;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  height: 450px;
+  padding: 20px;
   width: 50%;
+}
+
+.rgb-text {
+    border: 3px black;
+    height: 20px;
+}
+
+.colors-container {
+    display: flex;
+}
+
+.ball {
+    border: 1px solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
 }
