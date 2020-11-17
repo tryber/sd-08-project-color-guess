@@ -58,4 +58,14 @@ body {
     height: 50px;
     margin: 3px;
     width: 50px;
+    padding-top: 3px;
+}
+
+.rgb-text {
+  background-color: rgb(236, 235, 235);
+  border-radius: 30px;
+  display: flex;
+  height: 350px;
+  justify-content: center;
+  width: 50%;
 }
