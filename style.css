@@ -10,7 +10,7 @@
     padding-top: 15px;
 }
 
-.game-container {
+.game-title {
     background-color: #5995da;
     padding: 20px 0;
     color: #fff;
@@ -19,8 +19,4 @@
     flex-direction: row;
     justify-content: center;
     border-radius: 15px;
-}
-
-#title {
-    
 }
