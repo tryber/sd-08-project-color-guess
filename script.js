@@ -12,9 +12,7 @@ const createColorRandom = () => {
     const getColorRandom1 = Math.ceil(Math.random() * 255);
     const getColorRandom2 = Math.ceil(Math.random() * 255);
     const getColorRandom3 = Math.ceil(Math.random() * 255);
-    arrColor.push(
-      `(${getColorRandom1}, ${getColorRandom2}, ${getColorRandom3})`
-    );
+    arrColor.push(`(${getColorRandom1}, ${getColorRandom2}, ${getColorRandom3})`);
   }
   colorSelected = arrColor[Math.ceil(Math.random() * arrColor.length) - 1];
 };
@@ -29,27 +27,26 @@ const removeElementHTMLAll = () => {
   colorSelected = '';
   setMessageGame.innerText = '"Escolha uma cor';
 };
-const setSelected = () => {
-  getColorSelected.innerText = `${colorSelected}`;
-};
-const checked = (colorClick, colorSelected) => {
+const checked = (colorClick, colorSelect) => {
   const colorCurrent = colorClick.replace('rgb', '');
-  console.log(colorSelected);
-  if (colorCurrent === colorSelected) {
+  if (colorCurrent === colorSelect) {
     score += 3;
     setScoreGame.innerText = score;
     return (setMessageGame.innerText = 'Acertou!');
   }
   // score -= 1;
-  setMessageGame.innerText = 'Errou! Tente novamente!';
+  return (setMessageGame.innerText = 'Errou! Tente novamente!');
 };
 const eventClickCircle = () => {
   document.querySelectorAll('.ball').forEach((element) => {
     element.addEventListener('click', (event) => {
-      let colorClick = event.target.style.backgroundColor;
+      const colorClick = event.target.style.backgroundColor;
       checked(colorClick, colorSelected);
     });
   });
+};
+const setSelected = () => {
+  getColorSelected.innerText = `${colorSelected}`;
 };
 
 getResetGame.addEventListener('click', () => {
