@@ -1,7 +1,7 @@
-const ball = document.querySelectorAll(".ball");
+const ball = document.getElementsByClassName("ball");
 const answer = document.getElementById("answer");
-const reset = document.querySelector("#reset-game");
-const rgbColor = document.querySelector("#rgb-color");
+const reset = document.getElementById("reset-game");
+const rgbColor = document.getElementById("rgb-color");
 const score = document.getElementById("score");
 let resultado = 0,
   r,
