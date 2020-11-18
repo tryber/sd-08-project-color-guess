@@ -1,8 +1,8 @@
 const ball = document.querySelectorAll(".ball");
-const answer = document.querySelector("#answer");
+const answer = document.getElementById("answer");
 const reset = document.querySelector("#reset-game");
 const rgbColor = document.querySelector("#rgb-color");
-const score = document.querySelector("#score");
+const score = document.getElementById("score");
 let resultado = 0,
   r,
   g,
@@ -26,7 +26,11 @@ function gerarCor() {
 addEventListener("click", function (e) {
   if (e.target.className === "ball") {
     const cor = e.target.style.backgroundColor;
-    if (cor === "rgb" + rgbColor.textContent) { answer.textContent = "Acertou!"; placar(); }
+    if (cor === "rgb" + rgbColor.textContent) { 
+      answer.textContent = "Acertou!";
+      resultado += 3;
+      score.textContent = resultado;
+    }
     else { answer.textContent = "Errou! Tente novamente!"; }
   }
 });
@@ -39,8 +43,3 @@ reset.addEventListener("click", function () {
   rgbColor.textContent = `(${r}, ${g}, ${b})`;
   answer.textContent = "Escolha uma cor";
 });
-
-function placar() {
-  resultado += 3;
-  score.textContent = resultado;
-}
