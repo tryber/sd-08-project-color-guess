@@ -4,6 +4,7 @@ function startFunctions(){
     ballSetup();
     guessColorText();
     restartButtonListener();
+    loadScore();
 }
 
 function guessColorText(){
@@ -32,10 +33,18 @@ function setAnswerText(ballColor){
     if(rightColor == userAnswer){
         let score = document.querySelector('#score')
         score.innerHTML = parseInt(score.innerHTML) + 3;
+        localStorage.setItem('score', score.innerHTML)
         answerText.innerHTML = "Acertou!";
     }else{
         answerText.innerHTML = "Errou! Tente novamente!";
     }
+}
+
+function loadScore(){
+    let scoreStored = localStorage.getItem('score');
+    let scoreElement = document.querySelector('#score')
+    scoreElement.innerHTML = scoreStored;
+    console.log(score);
 }
 
 function restartButtonListener(){
