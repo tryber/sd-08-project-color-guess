@@ -41,7 +41,7 @@ answerQuest();
 
 function scoreUp() {
   const points = document.querySelector('#points');
-  let score = parseInt(points.innerHTML, 10);
+  const score = parseInt(points.innerHTML, 10);
   points.innerHTML = score + 3;
 }
 
