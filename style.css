@@ -1,11 +1,20 @@
-body {
-    text-align: center;
-}
-
 .ball {
     padding : 70px;
     border-radius: 50%;
     display: inline-block;
     border: 1px solid black;
     margin-left: 15px;
+}
+
+body {
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+}
+
+#scoreValue {
+    margin-right: 5px;
 }
