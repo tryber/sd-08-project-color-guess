@@ -26,8 +26,8 @@ function gerarCor() {
 addEventListener("click", function (e) {
   if (e.target.className === "ball") {
     const cor = e.target.style.backgroundColor;
-    if (cor === "rgb" + rgbColor.textContent) placar();
-    else answer.textContent = "Errou! Tente novamente!";
+    if (cor === "rgb" + rgbColor.textContent) { answer.textContent = "Acertou!"; placar(); }
+    else { answer.textContent = "Errou! Tente novamente!"; }
   }
 });
 
@@ -41,7 +41,6 @@ reset.addEventListener("click", function () {
 });
 
 function placar() {
-  answer.textContent = "Acertou!";
   resultado += 3;
   score.textContent = resultado;
 }
