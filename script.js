@@ -24,7 +24,7 @@ function generateRandomRgb() {
 
 function ballSetup() {
   for (let index = 0; index < balls.length; index += 1) {
-    const newRgb = 'rgb' + generateRandomRgb();
+    const newRgb = `rgb${generateRandomRgb()}`;
     balls[index].style.backgroundColor = newRgb;
   }
 }
@@ -63,4 +63,4 @@ window.onload = function () {
   guessColorText();
   restartButtonListener();
   ballsListener();
-}
+};
