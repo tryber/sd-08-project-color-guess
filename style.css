@@ -37,14 +37,13 @@ body {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   height: 450px;
   padding: 20px;
   width: 50%;
 }
 
 .colors-container {
-    display: flex;
+  display: flex;
 }
 
 .ball {
