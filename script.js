@@ -31,13 +31,19 @@ questColor();
 function answerQuest() {
   const answer = document.createElement('div');
   answer.id = 'answer';
-  answer.className = 'answer-style'
+  answer.className = 'answer-style';
   answer.innerHTML = 'Escolha uma cor';
   const controllerPainel = document.querySelector('#controller-painel');
   controllerPainel.prepend(answer);
 }
 
 answerQuest();
+
+function scoreUp() {
+  const points = document.querySelector('#points');
+  let score = parseInt(points.innerHTML, 10);
+  points.innerHTML = score + 3;
+}
 
 function eventResult() {
   const colors = document.querySelectorAll('.ball');
@@ -48,6 +54,7 @@ function eventResult() {
       if (answer.innerHTML === 'Escolha uma cor') {
         if (event.target.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
           answer.innerHTML = 'Acertou!';
+          scoreUp();
         } else {
           answer.innerHTML = 'Errou! Tente novamente!';
         }
@@ -88,3 +95,17 @@ function eventReset() {
 }
 
 eventReset();
+
+function createScoreboard() {
+  const scoreboardElement = document.querySelector('#score');
+  const scoreboard = document.createElement('p');
+  scoreboard.id = 'scoreboard';
+  scoreboard.innerHTML = 'Placar:';
+  scoreboardElement.appendChild(scoreboard);
+  const points = document.createElement('div');
+  points.id = 'points';
+  points.innerHTML = 0;
+  scoreboardElement.appendChild(points);
+}
+
+createScoreboard();
