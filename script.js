@@ -4,7 +4,7 @@ function startFunctions(){
     ballSetup();
     guessColorText();
     restartButtonListener();
-    loadScore();
+    ballsListener();
 }
 
 function guessColorText(){
@@ -19,7 +19,12 @@ function ballSetup(){
     for(let index = 0; index < balls.length; index += 1){
         let newRgb = generateRandomRgb();
         balls[index].style.backgroundColor = "rgb" + newRgb;
+    }
+}
 
+function ballsListener() {
+    let balls = document.querySelectorAll('.ball');    
+        for(let index = 0; index < balls.length; index += 1){
         balls[index].addEventListener('click', function(event){
             setAnswerText(event.target);
         })
@@ -33,18 +38,10 @@ function setAnswerText(ballColor){
     if(rightColor == userAnswer){
         let score = document.querySelector('#score')
         score.innerHTML = parseInt(score.innerHTML) + 3;
-        localStorage.setItem('score', score.innerHTML)
         answerText.innerHTML = "Acertou!";
     }else{
         answerText.innerHTML = "Errou! Tente novamente!";
     }
-}
-
-function loadScore(){
-    let scoreStored = localStorage.getItem('score');
-    let scoreElement = document.querySelector('#score')
-    scoreElement.innerHTML = scoreStored;
-    console.log(score);
 }
 
 function restartButtonListener(){
