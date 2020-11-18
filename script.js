@@ -1,5 +1,3 @@
-const colors = document.querySelectorAll('.ball');
-
 function randomColor() {
   const red = Math.floor(Math.random() * 255);
   const green = Math.floor(Math.random() * 255);
@@ -33,6 +31,7 @@ questColor();
 function answerQuest() {
   const answer = document.createElement('div');
   answer.id = 'answer';
+  answer.className = 'answer-style'
   answer.innerHTML = 'Escolha uma cor';
   const controllerPainel = document.querySelector('#controller-painel');
   controllerPainel.prepend(answer);
@@ -46,7 +45,7 @@ function eventResult() {
     colors[index].addEventListener('click', function (event) {
       const rgbColor = document.querySelector('#rgb-color');
       const answer = document.querySelector('#answer');
-      if (answer.innerHTML == 'Escolha uma cor') {
+      if (answer.innerHTML === 'Escolha uma cor') {
         if (event.target.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
           answer.innerHTML = 'Acertou!';
         } else {
@@ -62,6 +61,7 @@ eventResult();
 function createButtonReset() {
   const buttonReset = document.createElement('button');
   buttonReset.id = 'reset-game';
+  buttonReset.className = 'button-reset';
   buttonReset.innerHTML = 'Resetar jogo/cores';
   const controllerPainel = document.querySelector('#controller-painel');
   controllerPainel.appendChild(buttonReset);
@@ -84,7 +84,7 @@ function eventReset() {
     controllerPainel.removeChild(answer);
     answerQuest();
     eventResult();
-  })
+  });
 }
 
 eventReset();
