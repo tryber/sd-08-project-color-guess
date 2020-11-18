@@ -29,7 +29,9 @@ function gerarCor() {
 
 addEventListener('click', function (e) {
   if (e.target.className === 'ball') {
-    const cor = e.target.style.backgroundColor;
+    const cor = e.target.style.backgroundColor.slice(3);
+    alert(cor)
+
     if (cor === 'rgb' + rgbColor.textContent) {
       answer.innerText = 'Acertou!';
       resultado += 3;
