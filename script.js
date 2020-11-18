@@ -11,6 +11,8 @@ let resultado = 0,
 window.onload = gerarCor();
 rgbColor.innerText = '(168, 34, 1)';
 score.innerText = 'Placar: 0';
+answer.innerText = 'Escolha uma cor';
+reset.innerText = 'Reset';
 
 function randomRgb(a, b) {
   return Math.floor(Math.random() * (b - a + 1));
@@ -28,7 +30,7 @@ function gerarCor() {
 addEventListener('click', function (e) {
   if (e.target.className === 'ball') {
     const cor = e.target.style.backgroundColor;
-    if (cor === 'rgb' + rgbColor.innerText) {
+    if (cor === 'rgb' + rgbColor.textContent) {
       answer.innerText = 'Acertou!';
       resultado += 3;
       score.innerText = `Placar: ${resultado}`;
