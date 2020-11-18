@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+}
+
+#cores {
+  display: flex;
+  justify-content: center;
+}
+
+.ball {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
