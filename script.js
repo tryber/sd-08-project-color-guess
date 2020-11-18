@@ -8,3 +8,14 @@ function randomColor() {
 }
 
 randomColor();
+
+function createPalette() {
+  for (let index = 0; index < 6; index += 1) {
+    const ballColor = document.createElement('div');
+    ballColor.className = 'ball';
+    const palettecolor = document.querySelector('#palette-color');
+    palettecolor.appendChild(ballColor);
+  }
+}
+
+createPalette();
