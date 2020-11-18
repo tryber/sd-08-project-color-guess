@@ -2,23 +2,30 @@ const rgbText = document.querySelector('#rgb-color');
 const balls = document.querySelectorAll('.ball');
 const answerText = document.querySelector('#answer');
 
+function removeRgbText(element) {
+  return element.style.backgroundColor.replace('rgb', '');
+}
+
 function guessColorText() {
   const randomBall = balls[Math.round(Math.random() * 5)];
   rgbText.innerHTML = removeRgbText(randomBall);
+}
+
+function randomNumberForRgb() {
+  return Math.round(Math.random() * 255);
+}
+
+function generateRandomRgb() {
+  const r = randomNumberForRgb();
+  const g = randomNumberForRgb();
+  const b = randomNumberForRgb();
+  return `(${r}, ${g}, ${b})`;
 }
 
 function ballSetup() {
   for (let index = 0; index < balls.length; index += 1) {
     const newRgb = 'rgb' + generateRandomRgb();
     balls[index].style.backgroundColor = newRgb;
-  }
-}
-
-function ballsListener() {
-  for (let index = 0; index < balls.length; index += 1) {
-    balls[index].addEventListener('click', function (event) {
-      setAnswerText(event.target);
-    });
   }
 }
 
@@ -34,6 +41,14 @@ function setAnswerText(ballColor) {
   }
 }
 
+function ballsListener() {
+  for (let index = 0; index < balls.length; index += 1) {
+    balls[index].addEventListener('click', function (event) {
+      setAnswerText(event.target);
+    });
+  }
+}
+
 function restartButtonListener() {
   const restartButton = document.querySelector('#reset-game');
   restartButton.addEventListener('click', function () {
@@ -43,22 +58,7 @@ function restartButtonListener() {
   });
 }
 
-function generateRandomRgb() {
-  const r = randomNumberForRgb();
-  const g = randomNumberForRgb();
-  const b = randomNumberForRgb();
-  return `(${r}, ${g}, ${b})`;
-}
-
-function randomNumberForRgb() {
-  return Math.round(Math.random() * 255);
-}
-
-function removeRgbText(element) {
-  return element.style.backgroundColor.replace('rgb', '');
-}
-
-window.onload = function(){
+window.onload = function () {
   ballSetup();
   guessColorText();
   restartButtonListener();
