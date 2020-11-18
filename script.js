@@ -1,3 +1,5 @@
+const colors = document.querySelectorAll('.ball');
+
 function randomColor() {
   const red = Math.floor(Math.random() * 255);
   const green = Math.floor(Math.random() * 255);
@@ -5,8 +7,6 @@ function randomColor() {
   const stringColor = `(${red}, ${green}, ${blue})`;
   return stringColor;
 }
-
-randomColor();
 
 function createPalette() {
   for (let index = 0; index < 6; index += 1) {
@@ -35,12 +35,12 @@ function answerQuest() {
   answer.id = 'answer';
   answer.innerHTML = 'Escolha uma cor';
   const controllerPainel = document.querySelector('#controller-painel');
-  controllerPainel.appendChild(answer);
+  controllerPainel.prepend(answer);
 }
 
 answerQuest();
 
-function result() {
+function eventResult() {
   const colors = document.querySelectorAll('.ball');
   for (let index = 0; index < colors.length; index += 1) {
     colors[index].addEventListener('click', function (event) {
@@ -57,4 +57,34 @@ function result() {
   }
 }
 
-result();
+eventResult();
+
+function createButtonReset() {
+  const buttonReset = document.createElement('button');
+  buttonReset.id = 'reset-game';
+  buttonReset.innerHTML = 'Resetar jogo/cores';
+  const controllerPainel = document.querySelector('#controller-painel');
+  controllerPainel.appendChild(buttonReset);
+}
+
+createButtonReset();
+
+function eventReset() {
+  const buttonResetSelection = document.querySelector('#reset-game');
+  buttonResetSelection.addEventListener('click', function () {
+    const colors = document.querySelectorAll('.ball');
+    const palettecolor = document.querySelector('#palette-color');
+    for (let index = 0; index < 6; index += 1) {
+      palettecolor.removeChild(colors[index]);
+    }
+    createPalette();
+    questColor();
+    const controllerPainel = document.querySelector('#controller-painel');
+    const answer = document.querySelector('#answer');
+    controllerPainel.removeChild(answer);
+    answerQuest();
+    eventResult();
+  })
+}
+
+eventReset();
