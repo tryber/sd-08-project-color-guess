@@ -4,11 +4,12 @@ const circles = document.querySelectorAll('.ball');
 const answer = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 const circlesColors = [];
+let colorCode;
 
 const generateRandomColor = () => {
-  const red = Math.round(Math.random() * 255);
-  const green = Math.round(Math.random() * 255);
-  const blue = Math.round(Math.random() * 255);
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
 
   return `(${red}, ${green}, ${blue})`;
 };
@@ -38,15 +39,13 @@ const randomCircleColor = () => {
 randomCircleColor();
 
 const randomRGBCode = () => {
-  const colorCode = circlesColors[Math.round(Math.random() * circlesColors.length)];
+  colorCode = circlesColors[Math.floor(Math.random() * circlesColors.length)];
   color.innerText = colorCode.replace('rgb', '');
 };
 
 randomRGBCode();
 
 container.addEventListener('click', (event) => {
-  console.log(event.target.style.backgroundColor.replace('rgb', ''));
-  console.log(color.innerText);
   if (event.target.classList.contains('ball')) {
     if (
       event.target.style.backgroundColor.replace('rgb', '') !== color.innerText
