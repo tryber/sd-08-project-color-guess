@@ -1,5 +1,6 @@
 let color = document.getElementById("rgb-color");
 const container = document.querySelector(".circles-container");
+const circle = document.querySelectorAll(".ball");
 const answer = document.getElementById("answer");
 const resetButton = document.getElementById("reset-game");
 
