@@ -1,60 +1,63 @@
-let color = document.getElementById("rgb-color");
-const container = document.querySelector(".circles-container");
-const circle = document.querySelectorAll(".ball");
-const answer = document.getElementById("answer");
-const resetButton = document.getElementById("reset-game");
+const color = document.getElementById('rgb-color');
+const container = document.querySelector('.circles-container');
+const circles = document.querySelectorAll('.ball');
+const answer = document.getElementById('answer');
+const resetButton = document.getElementById('reset-game');
+const circlesColors = [];
 
-const randomRGBCode = () => {
-  const red = Math.floor(Math.random() * 255);
-  const green = Math.floor(Math.random() * 255);
-  const blue = Math.floor(Math.random() * 255);
+const generateRandomColor = () => {
+  const red = Math.round(Math.random() * 255);
+  const green = Math.round(Math.random() * 255);
+  const blue = Math.round(Math.random() * 255);
 
-  color.innerHTML = `(${red}, ${green}, ${blue})`;
+  return `(${red}, ${green}, ${blue})`;
 };
-
-randomRGBCode();
 
 const generateCircles = () => {
   for (let i = 0; i < 6; i += 1) {
-    const circle = document.createElement("div");
-    circle.className = "ball";
+    const circles = document.createElement('div');
+    circles.className = 'ball';
 
-    container.appendChild(circle);
+    container.appendChild(circles);
   }
 };
 
 generateCircles();
 
-const handleRandomColors = () => {
-  const red = Math.floor(Math.random() * 255);
-  const blue = Math.floor(Math.random() * 255);
-  const green = Math.floor(Math.random() * 255);
-
-  return `rgb(${red},${green},${blue})`;
-};
-
 const randomCircleColor = () => {
-  const circle = document.querySelectorAll(".ball");
+  const circle = document.querySelectorAll('.ball');
 
   for (let i = 0; i < circle.length; i += 1) {
-    circle[i].style.backgroundColor = handleRandomColors();
+    const color = (circle[i].style.backgroundColor = `rgb${generateRandomColor()}`);
+    circlesColors.push(color);
   }
+
+  return color;
 };
 
 randomCircleColor();
 
-container.addEventListener("click", (event) => {
-  if (event.target.classList.contains("ball")) {
-    if (
-      event.target.style.backgroundColor.replace("rgb", "") === color.innerText
-    ) {
-      answer.innerHTML = "Acertou!";
-    }
+const randomRGBCode = () => {
+  const colorCode = circlesColors[Math.round(Math.random() * circlesColors.length)];
+  color.innerText = colorCode.replace('rgb', '');
+};
 
-    answer.innerHTML = "Errou! Tente novamente!";
+randomRGBCode();
+
+container.addEventListener('click', (event) => {
+  console.log(event.target.style.backgroundColor.replace('rgb', ''));
+  console.log(color.innerText);
+  if (event.target.classList.contains('ball')) {
+    if (
+      event.target.style.backgroundColor.replace('rgb', '') !== color.innerText
+    ) {
+      answer.innerHTML = 'Errou! Tente novamente!';
+    } else {
+      answer.innerHTML = 'Acertou!';
+    }
   }
 });
 
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener('click', () => {
   location.reload();
 });
