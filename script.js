@@ -13,6 +13,11 @@ window.onload = function() {
         }
         return saida;
     }
-
     pergunta.innerHTML = gera3Aleatorios255();
+
+    let listaDeBolas = document.querySelectorAll('.ball');
+    for (var i = 0; i < 6; i += 1) {
+        listaDeBolas[i].style.backgroundColor = 'rgb' + (String(gera3Aleatorios255()));
+    }
 }
+
