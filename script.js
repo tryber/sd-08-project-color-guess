@@ -31,11 +31,13 @@ window.onload = function() {
     }
     geraBolasColoridas()
 
-    let resp = document.querySelector('#answer')
+    let resp = document.querySelector('#answer');
+    let score = document.getElementById('score');
     addEventListener('click', function (event) {
         let clicada = event.target;
         if (clicada.id == 'resposta') {
             pontuacao += 3;
+            score.innerHTML = pontuacao;
             resp.innerHTML = 'Acertou';
             alert('Acertou!')
         } else if (clicada.className == 'ball'){
