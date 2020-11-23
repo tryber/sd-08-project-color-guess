@@ -20,7 +20,6 @@ window.onload = function() {
     let listaDeBolas = document.querySelectorAll('.ball');
     function geraBolasColoridas() {
         let escolhida = Math.floor(Math.random() * 6);
-        console.log(escolhida);
         for (let i = 0; i < 6; i += 1) {
             if (i == escolhida) {
                 listaDeBolas[i].style.backgroundColor = 'rgb' + corPergunta;
@@ -33,16 +32,29 @@ window.onload = function() {
     geraBolasColoridas()
 
     let resp = document.querySelector('#answer')
-    let bolaClicada = document.querySelector('#resposta')
     addEventListener('click', function (event) {
         let clicada = event.target;
         if (clicada.id == 'resposta') {
-            pontuacao += 1;
-            resp.innerHTML = pontuacao;
+            pontuacao += 3;
+            resp.innerHTML = 'Acertou';
             alert('Acertou!')
-        } else {
+        } else if (clicada.className == 'ball'){
+            resp.innerHTML = 'Errou! Tente novamente!';
             alert('Errou! Tente novamente!')
         }
+        if (clicada.className == 'ball') {
+            corPergunta = gera3Aleatorios255();
+            pergunta.innerHTML = corPergunta;
+            geraBolasColoridas();
+        }
+    })
+
+    let resetGameButton = document.getElementById('reset-game');
+    resetGameButton.addEventListener('click', function() {
+        corPergunta = gera3Aleatorios255();
+        pergunta.innerHTML = corPergunta;
+        geraBolasColoridas();
+        resp.innerHTML = 'Escolha uma cor';
     })
 }
 
