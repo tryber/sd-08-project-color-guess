@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adivinhe a cor!</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1 id="title">Adivinhe a cor!</h1>
-      <span id="score">0</span>
-      <span id="rgb-color">(168, 34, 1)</span>
-    </header>
-    <span id="answer">Escolha uma cor</span>
-    <section id="option-color">
-      <div class="ball" style="background-color: white;"></div>
-      <div class="ball" style="background-color: white;"></div>
-      <div class="ball" style="background-color: white;"></div>
-      <div class="ball" style="background-color: white;"></div>
-      <div class="ball" style="background-color: white;"></div>
-      <div class="ball" style="background-color: white;"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title id="title">Adivinhe a cor</title>
+</head>
+<body>
+    <p id="rgb-color" class="top-items"></p>
+    <p id="score" class="top-items">0</p>
+    <section id="balls-container">
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
     </section>
-    <button id="reset-game">iniciar/reiniciar o jogo</button>
-
-    <script src="script.js"></script>
-  </body>
+    <p id="answer">Escolha uma cor</p>
+    <button id="reset-game">Reiniciar</button>
+    <script src="./script.js"></script>
+</body>
 </html>

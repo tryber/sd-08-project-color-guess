@@ -1,62 +1,66 @@
-const getColorSelected = document.getElementById("rgb-color");
-const getResetGame = document.getElementById("reset-game");
-const setMessageGame = document.getElementById("answer");
-const setScoreGame = document.getElementById("score");
-let score = 0;
-let arrColor = [];
-let colorSelected = "";
+const rgbText = document.querySelector('#rgb-color');
+const balls = document.querySelectorAll('.ball');
+const answerText = document.querySelector('#answer');
 
-const checked = (colorClick, colorSelect) => {
-  const colorCurrent = colorClick.replace("rgb", "");
-  if (colorCurrent === colorSelect) {
-    score += 3;
-    setScoreGame.innerText = score;
-    return (setMessageGame.innerText = "Acertou!");
+function removeRgbText(element) {
+  return element.style.backgroundColor.replace('rgb', '');
+}
+
+function guessColorText() {
+  const randomBall = balls[Math.round(Math.random() * 5)];
+  rgbText.innerHTML = removeRgbText(randomBall);
+}
+
+function randomNumberForRgb() {
+  return Math.round(Math.random() * 255);
+}
+
+function generateRandomRgb() {
+  const r = randomNumberForRgb();
+  const g = randomNumberForRgb();
+  const b = randomNumberForRgb();
+  return `(${r}, ${g}, ${b})`;
+}
+
+function ballSetup() {
+  for (let index = 0; index < balls.length; index += 1) {
+    const newRgb = `rgb${generateRandomRgb()}`;
+    balls[index].style.backgroundColor = newRgb;
   }
-  return (setMessageGame.innerText = "Errou! Tente novamente!");
-};
-const eventClickCircle = () => {
-  document.querySelectorAll(".ball").forEach((element) => {
-    element.addEventListener("click", (event) => {
-      const colorClick = event.target.style.backgroundColor;
-      checked(colorClick, colorSelected);
+}
+
+function setAnswerText(ballColor) {
+  const rightColor = rgbText.innerHTML;
+  const userAnswer = removeRgbText(ballColor);
+  if (rightColor === userAnswer) {
+    const score = document.querySelector('#score');
+    score.innerHTML = parseInt((score.innerHTML), 10) + 3;
+    answerText.innerHTML = 'Acertou!';
+  } else {
+    answerText.innerHTML = 'Errou! Tente novamente!';
+  }
+}
+
+function ballsListener() {
+  for (let index = 0; index < balls.length; index += 1) {
+    balls[index].addEventListener('click', function (event) {
+      setAnswerText(event.target);
     });
-  });
-};
-
-const createColorRandom = () => {
-  for (let index = 0; index < 6; index += 1) {
-    const getColorRandom1 = Math.ceil(Math.random() * 255);
-    const getColorRandom2 = Math.ceil(Math.random() * 255);
-    const getColorRandom3 = Math.ceil(Math.random() * 255);
-    arrColor.push(
-      `(${getColorRandom1}, ${getColorRandom2}, ${getColorRandom3})`
-    );
   }
-  colorSelected = arrColor[Math.ceil(Math.random() * arrColor.length) - 1];
-};
-const paintElementCicleColor = () => {
-  document.querySelectorAll(".ball").forEach((element, index) => {
-    element.style.backgroundColor = `rgb${arrColor[index]}`;
-  });
-  eventClickCircle();
-};
-const setSelected = () => {
-  getColorSelected.innerText = `${colorSelected}`;
-};
+}
 
-const resetGame = () => {
-  arrColor = [];
-  colorSelected = "";
-  setMessageGame.innerText = '"Escolha uma cor';
-  createColorRandom();
-  paintElementCicleColor();
-  setSelected();
-};
+function restartButtonListener() {
+  const restartButton = document.querySelector('#reset-game');
+  restartButton.addEventListener('click', function () {
+    answerText.innerHTML = 'Escolha uma cor';
+    ballSetup();
+    guessColorText();
+  });
+}
 
 window.onload = function () {
-  createColorRandom();
-  paintElementCicleColor();
-  setSelected();
-  getResetGame.addEventListener("click", resetGame);
+  ballSetup();
+  guessColorText();
+  restartButtonListener();
+  ballsListener();
 };
