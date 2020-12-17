@@ -32,7 +32,7 @@ checks:
 exclude_patterns:
   - "**/libs/*.css"
   - "**/libs/*.js"
-  - "**/*.{gif,png.jpeg}"
+  - "**/*.{gif,png,jpg,jpeg}"
   - "node_modules/"
   - "cypress/"
 plugins:
