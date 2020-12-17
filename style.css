@@ -1,6 +1,7 @@
 body {
-  background-image: url('./Color-pencils-small.jpg');
-  background-size: 100%;
+  background-attachment: fixed;
+  background-image: url('https://www.freelogoservices.com/blog/wp-content/uploads/colorpalette.jpg');
+  background-size: cover;
   font-family: Nunito, sans-serif;
   font-size: 18px;
 }
@@ -9,6 +10,7 @@ header {
   font-family: Fredericka the Great, cursive;
   font-size: 32px;
   text-align: center;
+  text-shadow: 2px 2px rgba(255, 255, 255, 0.7);
 }
 
 main {
@@ -79,11 +81,11 @@ button {
 }
 
 input {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 label {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .bold {
