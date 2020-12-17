@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Guess Project</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 id="title"><span class="red">Color</span><span class="green">Guess</span><span class="blue">Project</span></h1>
+  </header>
+  <main>
+    <section class="presentation">
+      <h2>Adivinhe a cor!</h2>
+      <p>Você manja de <span class="red">R</span><span class="green">G</span><span class="blue">B</span>?</p>
+      <p>Sabe identificar qual é a cor só pelo código?</p>
+      <p>Jogue e teste seus conhecimentos! (Ou sua sorte!)</p>
+    </section>
+    <section class="game">
+      <h3>Qual cor é essa:</h3>
+      <p id="rgb-color"></p>
+      <div class="show-score">
+        <p>Placar: <span id="score"></span></p>
+      </div>
+      <p id="answer" class="bold"></p>
+      <div id="colors-list" class="colors-list"></div>
+      <div class="buttons">
+        <button id="new-game">Novo jogo</button>
+        <button id="reset-game">Novas cores</button>
+        <form class="levels" method="get">
+          <fieldset>
+            <legend>Escolha a dificuldade</legend>
+            <input type="radio" name="level" id="easy" value="easy">
+            <label for="easy">Fácil</label>
+            <input type="radio" name="level" id="normal" value="normal" checked="true">
+            <label for="normal">Normal</label>
+            <input type="radio" name="level" id="hard" value="hard">
+            <label for="hard">Difícil</label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

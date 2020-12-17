@@ -1,0 +1,93 @@
+body {
+  background-image: url('./Color-pencils.jpg');
+  background-size: 100%;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+}
+
+header {
+  font-family: Fredericka the Great, cursive;
+  font-size: 32px;
+  text-align: center;
+}
+
+main {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+  width: 50%;
+}
+
+.ball {
+  border: black solid 1px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  height: 50px;
+  margin: 5px;
+  width: 50px;
+}
+
+.colors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.red {
+  color: red;
+  font-weight: 800;
+}
+
+.green {
+  color: rgb(4, 124, 4);
+  font-weight: 800;
+}
+
+.blue {
+  color: rgb(2, 2, 138);
+  font-weight: 800;
+}
+
+fieldset {
+  margin: 20px auto;
+  width: 50%;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+button {
+  background-color: rgb(247, 247, 247);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 20px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+input {
+  margin-left: 20px;
+}
+
+label {
+  margin-right: 20px;
+}
+
+.bold {
+  font-size: 20px;
+  font-stretch: expanded;
+  font-weight: 600;
+}
