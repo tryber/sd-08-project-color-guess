@@ -2,16 +2,14 @@ const selectColors = document.querySelectorAll('.ball');
 const rbgColor = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const resetBtn = document.querySelector('#reset-game');
+const score = document.querySelector('#score');
 
 const randomColor = () => {
   const generateColor = Math.floor(Math.random() * 255);
   return generateColor;
 };
 
-const startGame = () => {
-  if (document.querySelector('.selected') !== null) {
-    document.querySelector('.selected').classList.remove('selected');
-  }
+const generateColorAndEvents = () => {
   selectColors.forEach((ball) => {
     const redColor = randomColor();
     const greenColor = randomColor();
@@ -29,6 +27,7 @@ const startGame = () => {
       checkColor(event.target);
     });
   });
+
   const getRandomColor = Math.floor(Math.random() * selectColors.length);
   const refColor = selectColors[getRandomColor].style.backgroundColor;
   rbgColor.innerHTML = refColor.slice(3, 18);
@@ -39,7 +38,15 @@ const startGame = () => {
     } else {
       answer.innerHTML = 'Errou! Tente novamente!';
     }
+    console.log(refColor);
   };
+};
+
+const startGame = () => {
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').classList.remove('selected');
+  }
+  generateColorAndEvents();
 };
 
 resetBtn.addEventListener('click', startGame);
