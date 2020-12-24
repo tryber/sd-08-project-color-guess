@@ -1,20 +1,32 @@
 body {
-  display: flex;
-  flex-flow: column;
   align-items: center;
   background-color: rgb(212, 209, 209);
+  display: flex;
+  flex-flow: column;
 }
 
-div {
-  width: 50px;
-  height: 50px;
-  background: red;
-  border-radius: 50%;
-  margin-right: 10px;
+.ball {
   border: 1px solid black;
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 10px;
+  width: 50px;
 }
 
 section {
   display: flex;
   justify-content: center;
+}
+
+.answer {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.reset-game {
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 600;
 }
