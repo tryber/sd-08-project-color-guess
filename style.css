@@ -18,6 +18,10 @@ section {
   justify-content: center;
 }
 
+.selected {
+  border: 2px solid blue;
+}
+
 .answer {
   font-size: 20px;
   font-weight: 600;
@@ -29,4 +33,9 @@ section {
   border-radius: 10px;
   font-weight: 600;
   padding: 5px 10px;
+}
+
+.score , .rgb-color {
+  font-size: 20px;
+  font-weight: 500;
 }
