@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: rgb(212, 209, 209);
+}
+
+div {
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
