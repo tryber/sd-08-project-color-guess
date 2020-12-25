@@ -1,0 +1,41 @@
+body {
+  align-items: center;
+  background-color: rgb(212, 209, 209);
+  display: flex;
+  flex-flow: column;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 10px;
+  width: 50px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.selected {
+  border: 2px solid blue;
+}
+
+.answer {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.reset-game {
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+
+.score , .rgb-color {
+  font-size: 20px;
+  font-weight: 500;
+}
