@@ -2,7 +2,6 @@ const selectColors = document.querySelectorAll('.ball');
 const rbgColor = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const resetBtn = document.querySelector('#reset-game');
-const score = document.querySelector('#score');
 
 const randomColor = () => {
   const generateColor = Math.floor(Math.random() * 255);
@@ -15,11 +14,16 @@ const getRefColor = () => {
   rbgColor.innerHTML = refColor.slice(3, 18);
 };
 
+const addPoint = () => {
+  const score = document.querySelector('#score');
+  const points = parseInt(score.innerHTML, 10);
+  score.innerHTML = points + 3;
+};
+
 const checkColor = (element) => {
-  console.log(rbgColor.innerHTML);
   if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
-    score.innerHTML = Number(score.innerHTML) + 3;
+    addPoint();
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
