@@ -14,6 +14,15 @@ const getRefColor = () => {
   rbgColor.innerHTML = refColor.slice(3, 18);
 };
 
+const checkColor = (element) => {
+  if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
+    answer.innerHTML = 'Acertou!';
+    const score = document.getElementById('score');
+    const points = parseInt(score.innerHTML, 10) + 3;
+    score.innerHTML = points;
+  }
+};
+
 selectColors.forEach((ball) => {
   ball.addEventListener('click', (event) => {
     const selectedColor = document.querySelector('.selected');
@@ -26,15 +35,6 @@ selectColors.forEach((ball) => {
     checkColor(event.target);
   });
 });
-
-const checkColor = (element) => {
-  if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
-    answer.innerHTML = 'Acertou!';
-    const score = document.getElementById('score');
-    const points = parseInt(score.innerHTML, 10) + 3;
-    score.innerHTML = points;
-  }
-};
 
 const generateColorAndEvents = () => {
   selectColors.forEach((ball) => {
