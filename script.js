@@ -20,15 +20,6 @@ const addPoint = () => {
   score.innerHTML = points + 3;
 };
 
-const checkColor = (element) => {
-  if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
-    answer.innerHTML = 'Acertou!';
-    addPoint();
-  } else {
-    answer.innerHTML = 'Errou! Tente novamente!';
-  }
-};
-
 const ballsContainer = document.getElementById('colors');
 ballsContainer.addEventListener('click', (event) => {
   if (event.target.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
