@@ -9,6 +9,22 @@ const randomColor = () => {
   return generateColor;
 };
 
+const getRefColor = () => {
+  const getRandomColor = Math.floor(Math.random() * selectColors.length);
+  const refColor = selectColors[getRandomColor].style.backgroundColor;
+  rbgColor.innerHTML = refColor.slice(3, 18);
+};
+
+const checkColor = (element) => {
+  console.log(rbgColor.innerHTML);
+  if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
+    answer.innerHTML = 'Acertou!';
+    score.innerHTML = Number(score.innerHTML) + 3;
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+};
+
 const generateColorAndEvents = () => {
   selectColors.forEach((ball) => {
     const redColor = randomColor();
@@ -27,22 +43,11 @@ const generateColorAndEvents = () => {
       checkColor(event.target);
     });
   });
-
-  const getRandomColor = Math.floor(Math.random() * selectColors.length);
-  const refColor = selectColors[getRandomColor].style.backgroundColor;
-  rbgColor.innerHTML = refColor.slice(3, 18);
-
-  const checkColor = (element) => {
-    if (element.style.backgroundColor === refColor) {
-      answer.innerHTML = 'Acertou!';
-    } else {
-      answer.innerHTML = 'Errou! Tente novamente!';
-    }
-    console.log(refColor);
-  };
+  getRefColor();
 };
 
 const startGame = () => {
+  answer.innerHTML = 'Escolha uma cor';
   if (document.querySelector('.selected') !== null) {
     document.querySelector('.selected').classList.remove('selected');
   }
