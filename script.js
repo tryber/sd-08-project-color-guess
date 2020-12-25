@@ -14,12 +14,6 @@ const getRefColor = () => {
   rbgColor.innerHTML = refColor.slice(3, 18);
 };
 
-const addPoint = () => {
-  const score = document.querySelector('#score');
-  const points = parseInt(score.innerHTML, 10);
-  score.innerHTML = points + 3;
-};
-
 const ballsContainer = document.getElementById('colors');
 ballsContainer.addEventListener('click', (event) => {
   if (event.target.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
