@@ -29,7 +29,6 @@ const checkColor = (element) => {
   }
 };
 
-const checkAnswerAndScore = () => {};
 const ballsContainer = document.getElementById('colors');
 ballsContainer.addEventListener('click', (event) => {
   if (event.target.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
