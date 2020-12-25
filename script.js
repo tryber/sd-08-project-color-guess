@@ -14,17 +14,27 @@ const getRefColor = () => {
   rbgColor.innerHTML = refColor.slice(3, 18);
 };
 
-const ballsContainer = document.getElementById('colors');
-ballsContainer.addEventListener('click', (event) => {
-  if (event.target.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
+selectColors.forEach((ball) => {
+  ball.addEventListener('click', (event) => {
+    const selectedColor = document.querySelector('.selected');
+    if (!selectedColor) {
+      event.target.classList.add('selected');
+    } else {
+      selectedColor.classList.remove('selected');
+      event.target.classList.add('selected');
+    }
+    checkColor(event.target);
+  });
+});
+
+const checkColor = (element) => {
+  if (element.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
     const score = document.getElementById('score');
     const points = parseInt(score.innerHTML, 10) + 3;
     score.innerHTML = points;
-  } else {
-    answer.innerHTML = 'Errou! Tente novamente!';
   }
-});
+};
 
 const generateColorAndEvents = () => {
   selectColors.forEach((ball) => {
