@@ -29,23 +29,25 @@ const checkColor = (element) => {
   }
 };
 
+const checkAnswerAndScore = () => {};
+const ballsContainer = document.getElementById('colors');
+ballsContainer.addEventListener('click', (event) => {
+  if (event.target.style.backgroundColor === `rgb${rbgColor.innerHTML}`) {
+    answer.innerHTML = 'Acertou!';
+    const score = document.getElementById('score');
+    const points = parseInt(score.innerHTML, 10) + 3;
+    score.innerHTML = points;
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+});
+
 const generateColorAndEvents = () => {
   selectColors.forEach((ball) => {
     const redColor = randomColor();
     const greenColor = randomColor();
     const blueColor = randomColor();
     ball.style.backgroundColor = `rgb( ${redColor}, ${greenColor}, ${blueColor} )`;
-
-    ball.addEventListener('click', (event) => {
-      const selectedColor = document.querySelector('.selected');
-      if (!selectedColor) {
-        event.target.classList.add('selected');
-      } else {
-        selectedColor.classList.remove('selected');
-        event.target.classList.add('selected');
-      }
-      checkColor(event.target);
-    });
   });
   getRefColor();
 };
