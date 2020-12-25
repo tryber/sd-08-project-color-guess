@@ -20,6 +20,8 @@ const checkColor = (element) => {
     const score = document.getElementById('score');
     const points = parseInt(score.innerHTML, 10) + 3;
     score.innerHTML = points;
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
   }
 };
 
