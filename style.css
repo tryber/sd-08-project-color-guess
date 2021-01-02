@@ -1,3 +1,15 @@
 .body {
+  align-items: center;
   background-color: rgb(211,211,211);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ball {
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;    
+    height: 40px;
+    width: 40px;
 }
