@@ -1,0 +1,73 @@
+.body {
+  align-items: center;
+  background-color: rgb(211,211,211);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ball {
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+
+.game {
+  border: 3px dashed rgb(185, 83, 238);
+  padding: 30px;
+}
+
+.reset-btn {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.green-btn {
+  background-color: green;
+  box-shadow: 0 5px 0 #006000;
+  color: white;
+}
+
+.green-btn:hover {
+  background-color: #006000;
+  box-shadow: 0 5px 0 #003f00;
+  color: white;
+}
+
+.green-btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}
+
+.score {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rgb-color {
+  text-align: center;
+}
+
+.answer {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
