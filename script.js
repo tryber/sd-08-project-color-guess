@@ -27,3 +27,13 @@ function insertColors() {
   }
 }
 insertColors();
+
+const answer = document.getElementById('answer');
+const colorContainer = document.getElementById('color-container');
+colorContainer.addEventListener('click', (event) => {
+  if (event.target.style.backgroundColor === rgbColor.innerHTML) {
+    answer.innerHTML = 'Acertou!';
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+});
