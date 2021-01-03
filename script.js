@@ -37,3 +37,10 @@ colorContainer.addEventListener('click', (event) => {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
 });
+
+const resetBtn = document.getElementById('reset-game');
+resetBtn.addEventListener('click', () => {
+  generateNewChallenge();
+  insertColors();
+  answer.innerHTML = 'Escolha uma cor';
+});
