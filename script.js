@@ -33,6 +33,9 @@ const colorContainer = document.getElementById('color-container');
 colorContainer.addEventListener('click', (event) => {
   if (event.target.style.backgroundColor === rgbColor.innerHTML) {
     answer.innerHTML = 'Acertou!';
+    const score = document.getElementById('score');
+    const points = parseInt(score.innerHTML) + 3;
+    score.innerHTML = points;
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }

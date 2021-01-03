@@ -8,8 +8,9 @@
 </head>
 <body class="body">
     <div class="game">
-    <h1 id="title">Adivinhe a cor!</h1>
-    <h4 id="rgb-color"></h4>
+    <h1 id="title" class="title">Adivinhe a cor!</h1>
+    <h4 id="rgb-color" class="rgb-color"></h4>
+    <p class="score">Placar: <span id="score">0</span></p>
     <section id="color-container">
         <span class="ball"></span>
         <span class="ball"></span>
@@ -18,8 +19,10 @@
         <span class="ball"></span>
         <span class="ball"></span>
     </section>
-    <h2 id="answer">Escolha uma cor</h2>
-    <button id="reset-game" class="reset-btn green-btn">Resetar o jogo/Cores</button>
+    <h2 id="answer" class="answer">Escolha uma cor</h2>
+    <div class="btn">
+        <button id="reset-game" class="reset-btn green-btn">Resetar o jogo/Cores</button>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
